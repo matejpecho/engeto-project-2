@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Netflix</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" defer></script>
+    <title>Netflix Sledujte filmy a seriály online</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">NETFLIX</div>
+      <a href="#" class="btn-register">Registrace</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Neomezené sledování filmů, TV pořadů a dalšího obsahu</h1>
+        <h2>Už od 239 Kč. Zrušte kdykoli.</h2>
+        <p>Jste připraveni se dívat? Pro vytvoření nebo obnovení členství zadejte e-mail.</p>
+
+        <form class="email-form">
+          <input type="email" placeholder="E-mailová adresa" required />
+          <button type="submit">Začít</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="movies-section">
+      <div class="movies-container">
+        <div class="movie">
+          <img src="img/avengers.jpg" alt="Avengers Infinity War" />
+        </div>
+        <div class="movie">
+          <img src="img/bugs-life.jpeg" alt="A Bug's Life" />
+        </div>
+        <div class="movie">
+          <img src="img/thor.jpeg" alt="Thor" />
+        </div>
+      </div>
+
+      <button class="btn-red">Najít další filmy</button>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-columns">
+          <ul>
+            <li><a href="#">Často kladené dotazy</a></li>
+            <li><a href="#">Vztahy s investory</a></li>
+            <li><a href="#">Jak se dívat</a></li>
+            <li><a href="#">Podnikové informace</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Centrum zákaznické podpory</a></li>
+            <li><a href="#">Kariéra</a></li>
+            <li><a href="#">Podmínky používání</a></li>
+            <li><a href="#">Kontaktujte nás</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Účet</a></li>
+            <li><a href="#">Uplatněte dárkové poukazy</a></li>
+            <li><a href="#">Soukromí</a></li>
+            <li><a href="#">Test rychlosti</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Pro média</a></li>
+            <li><a href="#">Koupit dárkové poukazy</a></li>
+            <li><a href="#">Nastavení souborů cookie</a></li>
+            <li><a href="#">Právní záruka</a></li>
+          </ul>
+        </div>
+      </footer>
+    </section>
+  </body>
 </html>

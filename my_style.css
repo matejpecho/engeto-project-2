@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+/* Header */
+
+.header-logo img {
+  width: 120px;
+  margin: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
