@@ -80,3 +80,29 @@ input[type="email"] {
   border: white solid 1px;
   background-color: black;
 }
+
+.movies {
+  padding: 50px 20px;
+  background-color: #000;
+  text-align: center;
+}
+
+.movies-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.movies-container img {
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.movies-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+ß .movies button {
+  display: block;
+  margin: 50px auto;
+}
