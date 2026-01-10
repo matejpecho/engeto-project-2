@@ -4,13 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Arial", sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
-  overflow-x: hidden;
-}
-
 /* Header */
 
 .header-logo img {
@@ -21,4 +14,69 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  background-color: black;
+  height: 65px;
+}
+
+.hero {
+  font-family: "Arial", sans-serif;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  background: url("img/background.jpg") no-repeat center/cover fixed;
+  min-height: calc(100vh - 65px);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  min-height: calc(100vh - 65px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  padding: 150px 20px 50px 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 5px;
+}
+
+button[type="submit"] {
+  background-color: rgb(214, 28, 28);
+  color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+
+input[type="email"] {
+  padding: 10px;
+  width: 60%;
+  font-size: 16px;
+
+  margin: 10px;
+  color: white;
+  border: white solid 1px;
+  background-color: black;
 }
