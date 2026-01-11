@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html"
+        ><div class="header-logo"><img src="img/netflix-logo.png" alt="netflix logo" /></div
+      ></a>
+      <a href="registration.html" class="button">Registrace</a>
+    </header>
+    <section class="movies-overview section">
+      <div class="icon-up">
+        <i class="fa-regular fa-circle-up"></i>
+      </div>
+      <a href="index.html" class="button">Zpět na hlavní stránku</a>
+      <h1>Objevte další filmy a TV pořady</h1>
+
+      <select id="category" class="custom-select">
+        <option value="" selected disabled>Vyberte možnost</option>
+        <option value="girl">girl</option>
+        <option value="avengers">avengers</option>
+        <option value="action">action</option>
+        <option value="animal">animal</option>
+        <option value="other">vlastní možnost</option>
+      </select>
+      <input id="my_choice" class="hidden" type="text" placeholder="Napište jedno klíčové slovo bez diakritiky." />
+
+      <div class="movies-overview-container rotate"></div>
+    </section>
+
+    <script>
+      const categorySelect = document.getElementById("category"); // Get the category select element
+      const moviesContainer = document.querySelector(".movies-overview-container"); // Get the container to display movies
+      let categoryCustom = ""; // Variable to hold custom category input
+
+      categorySelect.addEventListener("change", () => {
+        // Listen for changes in the select element
+        const selectedCategory = categorySelect.value; // Get the selected category
+        moviesContainer.innerHTML = "";
+
+        if (selectedCategory === "other") {
+          categoryCustom = prompt("Zadejte klíčové slovo pro hledání filmů:").trim();
+          categorySelect.innerHTML += `<option value="other" selected> ${categoryCustom} </option>`;
+        }
+        returnMovies(selectedCategory === "other" ? categoryCustom : selectedCategory); // Fetch and display movies based on the selected category
+      });
+
+      function returnMovies(category) {
+        searchMovies(category).then((results) => {
+          // Search for movies based on the selected category - searchMovies() in script.js
+          results.forEach((result) => {
+            // Create and append an image element - createMovieElement() in script.js
+            moviesContainer.appendChild(createMovieElement(result));
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

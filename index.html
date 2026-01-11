@@ -1,78 +1,93 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Netflix Sledujte filmy a seriály online</title>
+    <title>Netflix</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="logo">NETFLIX</div>
-      <a href="#" class="btn-register">Registrace</a>
+    <header>
+      <a href="index.html"
+        ><div class="header-logo"><img src="img/netflix-logo.png" alt="netflix logo" /></div
+      ></a>
+      <a href="registration.html" class="button">Registrace</a>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-      <div class="overlay"></div>
-      <div class="content">
+      <div class="icon-up">
+        <i class="fa-regular fa-circle-up"></i>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-container">
         <h1>Neomezené sledování filmů, TV pořadů a dalšího obsahu</h1>
-        <h2>Už od 239 Kč. Zrušte kdykoli.</h2>
+        <h2>Už od 239 Kč. Zrušte kdykoliv.</h2>
         <p>Jste připraveni se dívat? Pro vytvoření nebo obnovení členství zadejte e-mail.</p>
-
-        <form class="email-form">
-          <input type="email" placeholder="E-mailová adresa" required />
+        <form action="">
+          <input type="email" placeholder="E-mailová adresa" />
           <button type="submit">Začít</button>
         </form>
       </div>
     </section>
 
-    <!-- Movies Section -->
-    <section class="movies-section">
+    <section class="movies section">
       <div class="movies-container">
-        <div class="movie">
-          <img src="img/avengers.jpg" alt="Avengers Infinity War" />
-        </div>
-        <div class="movie">
-          <img src="img/bugs-life.jpeg" alt="A Bug's Life" />
-        </div>
-        <div class="movie">
-          <img src="img/thor.jpeg" alt="Thor" />
-        </div>
+        <!-- Resolved as random category fetch to API to get random result for this section -->
+
+        <!--         <img src="img/avengers.jpg" alt="Avengers" />
+        <img src="img/bugs-life.jpeg" alt="Bugs Life" />
+        <img src="img/thor.jpeg" alt="Thor" /> -->
       </div>
-
-      <button class="btn-red">Najít další filmy</button>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-columns">
-          <ul>
-            <li><a href="#">Často kladené dotazy</a></li>
-            <li><a href="#">Vztahy s investory</a></li>
-            <li><a href="#">Jak se dívat</a></li>
-            <li><a href="#">Podnikové informace</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">Centrum zákaznické podpory</a></li>
-            <li><a href="#">Kariéra</a></li>
-            <li><a href="#">Podmínky používání</a></li>
-            <li><a href="#">Kontaktujte nás</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">Účet</a></li>
-            <li><a href="#">Uplatněte dárkové poukazy</a></li>
-            <li><a href="#">Soukromí</a></li>
-            <li><a href="#">Test rychlosti</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">Pro média</a></li>
-            <li><a href="#">Koupit dárkové poukazy</a></li>
-            <li><a href="#">Nastavení souborů cookie</a></li>
-            <li><a href="#">Právní záruka</a></li>
-          </ul>
-        </div>
-      </footer>
+      <a href="other-films.html" class="button">Najít další filmy</a>
     </section>
+    <footer class="footer section">
+      <div class="footer-container">
+        <ul>
+          <li><a href="#">Často kladené dotazy</a></li>
+          <li><a href="#">Vztahy s investory</a></li>
+          <li><a href="#">Jak se dívat</a></li>
+          <li><a href="#">Podnikové informace</a></li>
+          <li><a href="#">Právní oznámení</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Centrum zákaznické podpory</a></li>
+          <li><a href="#">Kariéra</a></li>
+          <li><a href="#">Podmínky používání</a></li>
+          <li><a href="#">Kontaktujte nás</a></li>
+          <li><a href="#">Uvádí jedině Netflix</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Účet</a></li>
+          <li><a href="#">Uplatněte dárkové poukazy</a></li>
+          <li><a href="#">Soukromí</a></li>
+          <li><a href="#">Test rychlosti</a></li>
+          <li><a href="#">Reklamy</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Pro média</a></li>
+          <li><a href="#">Koupit dárkové poukazy</a></li>
+          <li><a href="#">Nastavení souborů cookie</a></li>
+          <li><a href="#">Právní záruka</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      const moviesContainer = document.querySelector(".movies-container");
+      const moviesCategories = ["avengers", "girl", "fantasy", "animal"];
+      document.addEventListener("DOMContentLoaded", () => {
+        let randomNumber = Math.floor(Math.random() * 4) + 1;
+
+        searchMovies(moviesCategories[randomNumber]).then((results) => {
+          // Search for movies based on the selected category - searchMovies() in script.js
+          for (let i = 0; i < 3; i++) {
+            // Create and append an image element - createMovieElement() in script.js
+            moviesContainer.appendChild(createMovieElement(results[i]));
+          }
+        });
+      });
+    </script>
   </body>
 </html>

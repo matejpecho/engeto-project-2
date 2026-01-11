@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrace</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html"
+        ><div class="header-logo"><img src="img/netflix-logo.png" alt="netflix logo" /></div
+      ></a>
+      <a href="registration.html" class="button">Registrace</a>
+    </header>
+    <section class="registration section">
+      <div class="icon-up">
+        <i class="fa-regular fa-circle-up"></i>
+      </div>
+      <form id="registrationForm" action="">
+        <input type="text" id="first_name" required placeholder="Křestní jméno" />
+        <input type="text" id="last_name" required placeholder="Příjmení" />
+        <input type="email" id="email" required placeholder="Přihlašovací e-mailová adresa" />
+        <br /><br />
+        <input type="password" id="password" required placeholder="Vaše heslo" />
+        <input type="password" id="confirm_password" required placeholder="Potvrďte vaše heslo" />
+        <br /><br />
+        <button type="submit">Registrovat se</button>
+      </form>
+    </section>
+    <script>
+      document.getElementById("password").oninput = validatePassword;
+      document.getElementById("confirm_password").oninput = validatePassword;
+      document.getElementById("email").oninput = validateEmail;
+
+      function validatePassword() {
+        // Function to validate if passwords match
+        var pass2 = document.getElementById("confirm_password").value;
+        var pass1 = document.getElementById("password").value;
+        var passwordInput = document.getElementById("password");
+        var confirmInput = document.getElementById("confirm_password");
+
+        if (pass1 != pass2) {
+          passwordInput.style.borderColor = "red";
+          confirmInput.style.borderColor = "red";
+        } else if (pass1 != "" && pass2 != "") {
+          passwordInput.style.borderColor = "green";
+          confirmInput.style.borderColor = "green";
+        }
+      }
+
+      function validateEmail() {
+        // Function to validate email format
+        var email = document.getElementById("email").value;
+        var emailInput = document.getElementById("email");
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!regex.test(email)) {
+          emailInput.style.borderColor = "red";
+        } else {
+          emailInput.style.borderColor = "green";
+        }
+      }
+
+      const form = document.getElementById("registrationForm");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        alert("Formulář byl úspěšně odeslán!");
+      });
+    </script>
+  </body>
+</html>
